@@ -8,6 +8,7 @@
 //JAVA 15+
 //SOURCES Catalog.java
 //SOURCES TemplateEngine.java
+//FILES catalog.md.qute
 //Q:CONFIG quarkus.banner.enabled=false
 //Q:CONFIG quarkus.log.level=ERROR
 
