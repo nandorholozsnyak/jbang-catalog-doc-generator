@@ -4,6 +4,18 @@
   <img src="https://raw.githubusercontent.com/jbangdev/jbang/main/images/jbang_logo.svg">
 </p>
 
+### Catalogs
+
+**Catalog reference**: https://github.com/jbangdev/jbang-catalog/blob/HEAD/jbang-catalog.json <br>
+
+---
+
+
+**Catalog reference**: https://github.com/nandorholozsnyak/jbang-catalog/tree/feature/aws-lambda-templates <br>
+
+---
+
+
 
 
 ### Aliases
@@ -46,4 +58,4 @@
 - *native-function* - *Generate native executable based lambda function or not (false)*
 ---
 
-<h4 style="text-align: center;">Created with JBang Catalog @ 2022-01-25 21:09</h4>
+<h4 style="text-align: center;">Created with JBang Catalog @ 2022-01-25 21:16</h4>
