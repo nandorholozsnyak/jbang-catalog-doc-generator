@@ -1,0 +1,59 @@
+{
+    "catalogs": {
+        "demo": {
+            "catalog-ref": "https://github.com/jbangdev/jbang-catalog/blob/HEAD/jbang-catalog.json"
+        },
+        "testv2": {
+            "catalog-ref": "https://github.com/nandorholozsnyak/jbang-catalog/tree/feature/aws-lambda-templates"
+        }
+    },
+    "aliases": {
+        "cli": {
+            "script-ref": "https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/2.6.1.Final/quarkus-cli-2.6.1.Final-runner.jar"
+        },
+        "qs": {
+            "script-ref": "https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/2.6.1.Final/quarkus-cli-2.6.1.Final-runner.jar"
+        },
+        "quarkus": {
+            "script-ref": "https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/2.6.1.Final/quarkus-cli-2.6.1.Final-runner.jar"
+        }
+    },
+    "templates": {
+        "q-aws-lambda-tf": {
+            "file-refs": {
+                "{filename}": "aws/aws-lambda.java.qute",
+                "generate-jar.sh": "aws/generate-jar.sh",
+                "generate-native-image.sh": "aws/generate-native-image.sh",
+                "application.properties": "aws/application.properties",
+                "lambda-aws.tf": "aws/lambda-aws.tf.qute"
+            },
+            "description": "Quarkus AWS Lambda template with Terraform template. Use the -Dnative-function flag to have native image based Terraform resources",
+            "properties": {
+                "tf-providers": {
+                    "description": "If enabled extra Terraform related providers will be generated",
+                    "default": false
+                },
+                "tf-provider.aws.version": {
+                    "description": "Version of the AWS Terraform provider",
+                    "default": "3.71.0"
+                },
+                "tf-provider.archive.version": {
+                    "description": "Version of the Archive Terraform provider",
+                    "default": "2.2.0"
+                },
+                "tf-provider.null.version": {
+                    "description": "Version of the NULL Terraform provider",
+                    "default": "3.1.0"
+                },
+                "tf-provider.aws.region": {
+                    "description": "AWS Region",
+                    "default": "eu-central-1"
+                },
+                "native-function": {
+                    "description": "Generate native executable based lambda function or not",
+                    "default": false
+                }
+            }
+        }
+    }
+}

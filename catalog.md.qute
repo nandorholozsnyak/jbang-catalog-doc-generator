@@ -1,0 +1,112 @@
+{#if catalogName}
+<h1 style="text-align: center;">{catalogName}</h1>
+{/if}
+
+{#if catalog.baseRef}
+## {catalog.baseRef} <br>
+{/if}
+{#if catalog.description}
+### {catalog.description} <br>
+{/if}
+
+<p align="center">
+  <img src="{catalogLogo or 'https://raw.githubusercontent.com/jbangdev/jbang/main/images/jbang_logo.svg'}">
+</p>
+
+{#if renderCatalogs}
+### Catalogs
+{#for catalog in catalog.catalogs.orEmpty}
+
+**Catalog reference**: {catalog.value.catalogRef} <br>
+{#if catalog.value.description}
+**Description**: {catalog.value.description} <br>
+{/if}
+
+---
+
+{/for}
+
+{/if}
+
+{#if renderAliases}
+
+### Aliases
+{#for alias in catalog.aliases.orEmpty}
+##### {alias.key}
+###### Usage: `jbang {alias.key} [args...]`
+**Script reference**: {alias.value.scriptRef} <br>
+{#if alias.value.description}
+**Description**: {alias.value.description} <br>
+{/if}
+{#if alias.value.arguments}
+**Arguments**:<br>
+{#for argument in alias.value.arguments.orEmpty}
+- {argument}
+{/for}
+{/if}
+{#if alias.value.javaOptions}
+**Java options**:<br>
+{#for javaOption in alias.value.javaOptions.orEmpty}
+- {javaOption}
+{/for}
+{/if}
+{#if alias.value.dependencies}
+**Dependencies**:<br>
+{#for dependency in alias.value.dependencies.orEmpty}
+- {dependency}
+{/for}
+{/if}
+{#if alias.value.repositories}
+**Repositories**:<br>
+{#for repository in alias.value.repositories.orEmpty}
+- {repository}
+{/for}
+{/if}
+{#if alias.value.classpaths}
+**Class paths**:<br>
+{#for classpath in alias.value.classpaths.orEmpty}
+- {classpath}
+{/for}
+{/if}
+{#if alias.value.properties}
+**Properties**:<br>
+{#for property in alias.value.properties.orEmpty}
+- {property}
+{/for}
+{/if}
+{#if alias.value.javaVersion}
+**Java version**: {alias.value.javaVersion}<br>
+{/if}
+{#if alias.value.mainClass}
+**Main class**: {alias.value.mainClass or ''}
+{/if}
+
+---
+
+{/for}
+{/if}
+
+{#if renderTemplates}
+### Templates
+{#for template in catalog.templates.orEmpty}
+##### {template.key}
+###### Usage: `jbang init -t={template.key} script.java [args...]`
+{#if template.value.description}
+**Description**: {template.value.description}<br><br>
+{/if}
+**File references**:
+{#for templateFileRef in template.value.fileRefs.orEmpty}
+- *{templateFileRef.key}* - [{templateFileRef.value}]({templateFileRef.value})
+{/for}
+
+{#if template.value.properties}
+**Template properties**:
+{#for property in template.value.properties.orEmpty}
+- *{property.key}* - *{property.value.description} {#if property.value.defaultValue}({property.value.defaultValue}){/if}*
+{/for}
+{/if}
+---
+{/for}
+{/if}
+
+<h4 style="text-align: center;">Created with JBang Catalog @ {generationDate}</h4>
